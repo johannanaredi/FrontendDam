@@ -27,6 +27,12 @@ function App() {
     .catch(() => alert("Något gick fel vid inloggningen"));
   };
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUsername("");
+    setPassword("");
+  };
+
  return (
     <div className="App">
       <h1>Mega File Viewer</h1>
@@ -46,8 +52,13 @@ function App() {
           />
           <button onClick={handleLogin}>Logga in</button>
         </div>
-      ) : (
-        <MegaFiles username={username} password={password} />
+       ) : (
+        <>
+          <MegaFiles username={username} password={password} />
+          <button onClick={handleLogout} style={{ marginTop: "1rem" }}>
+            Logga ut
+          </button>
+        </>
       )}
     </div>
   );
