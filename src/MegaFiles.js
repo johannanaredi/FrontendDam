@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 
-function MegaFiles() {
+function MegaFiles({ username, password }) {
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/mega/files")
+    fetch("http://localhost:8080/mega/files", {
+      headers: {
+        Authorization: "Basic " + btoa(`${username}:${password}`),
+      },
+    })
       .then((res) => {
         if (!res.ok) throw new Error("Något gick fel!");
         return res.json();
@@ -15,7 +19,7 @@ function MegaFiles() {
       .catch((err) => {
         console.error("Fel vid hämtning:", err);
       });
-  }, []);
+  }, [username, password]);
 
   return (
     <div>
