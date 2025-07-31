@@ -1,66 +1,34 @@
-
 import { useState } from "react";
-import MegaFiles from './MegaFiles';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import LoginPage from "./LoginPage";
+import UserPage from "./UserPage";
+import AdminPage from "./AdminPage";
 
-function App() {
-
-  const[username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleLogin = () => {
-
-    fetch("http://localhost:8080/mega/user", {
-      headers: {
-        Authorization: "Basic " + btoa(`${username}:${password}`),
-      },
-    })
-    .then((res) => {
-      if(res.ok){
-        setIsLoggedIn(true);
-      }else {
-        alert("Fel användarnamn eller lösenord");
-      }
-
-    })
-    .catch(() => alert("Något gick fel vid inloggningen"));
-  };
+// Inre komponent med navigation
+function AppContent() {
+  const [credentials, setCredentials] = useState({ username: "", password: "" });
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    setIsLoggedIn(false);
-    setUsername("");
-    setPassword("");
+    setCredentials({ username: "", password: "" });
+    navigate("/"); // går tillbaka till login-sidan
   };
 
- return (
-    <div className="App">
-      <h1>Mega File Viewer</h1>
-      {!isLoggedIn ? (
-        <div>
-          <input
-            type="text"
-            placeholder="Användarnamn"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Lösenord"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button onClick={handleLogin}>Logga in</button>
-        </div>
-       ) : (
-        <>
-          <MegaFiles username={username} password={password} />
-          <button onClick={handleLogout} style={{ marginTop: "1rem" }}>
-            Logga ut
-          </button>
-        </>
-      )}
-    </div>
+  return (
+    <Routes>
+      <Route path="/" element={<LoginPage setCredentials={setCredentials} />} />
+      <Route path="/user" element={<UserPage {...credentials} onLogout={handleLogout} />} />
+      <Route path="/admin" element={<AdminPage {...credentials} onLogout={handleLogout} />} />
+    </Routes>
+  );
+}
+
+// Yttre komponent med Router
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 
