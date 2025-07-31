@@ -1,10 +1,16 @@
-import MegaFiles from "./MegaFiles";
+
+
+import MegaExportMissingButton from "./MegaExportMissingButton";
+
+import MysqlAssets from "./MysqlAssets";
+console.log("Imported MysqlAssets:", MysqlAssets);
 
 function AdminPage({ username, password, onLogout }) {
   return (
     <div>
       <h2>Hej admin!</h2>
-      <MegaFiles username={username} password={password} />
+       <MysqlAssets username={username} password={password} />
+        <MegaExportMissingButton username={username} password={password} />
       <button onClick={onLogout}>Logga ut</button>
     </div>
   );
