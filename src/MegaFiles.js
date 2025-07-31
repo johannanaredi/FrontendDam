@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 function MegaFiles({ username, password }) {
   const [files, setFiles] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:8080/mega/files", {
@@ -21,11 +22,24 @@ function MegaFiles({ username, password }) {
       });
   }, [username, password]);
 
+  const filteredFiles = files.filter((file) =>
+    file.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div>
       <h2>Filer från Mega</h2>
+      
+      <input
+        type="text"
+        placeholder="Sök efter filnamn"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        style={{ marginBottom: "10px", padding: "5px", width: "200px" }}
+      />
+      
       <ul>
-        {files.map((file, index) => (
+        {filteredFiles.map((file, index) => (
           <li key={index}>{file}</li>
         ))}
       </ul>
