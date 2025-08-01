@@ -19,7 +19,6 @@ function MysqlAssets({ username, password }) {
       .catch(err => setError(err.message));
   }, [username, password]);
 
-  // Filtrera listan baserat på söktermen
   const filteredAssets = assets.filter(asset =>
     asset.filename.toLowerCase().includes(searchTerm.toLowerCase())
   );
