@@ -1,0 +1,27 @@
+.export-container {
+  text-align: center;
+  margin-top: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.export-button {
+  background-color: #25578d;
+  color: rgb(11, 10, 69);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.export-button:hover {
+  background-color: #0056b3;
+}
+
+.status-message {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+

@@ -1,0 +1,47 @@
+.delete-by-id {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #fff8f8;
+  border: 1px solid #ffcccc;
+  border-radius: 12px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 6px rgba(255, 0, 0, 0.1);
+}
+
+.delete-by-id h2 {
+  color: #600c65;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.delete-by-id input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: calc(100% - 110px);
+  margin-bottom: 1rem;
+}
+
+.delete-by-id button {
+  padding: 0.5rem 1rem;
+  background-color: #cf4ab2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 1rem; /* Den här gör att det blir luft mellan input och knapp */
+}
+
+.delete-by-id button:hover {
+  background-color: #380730;
+}
+
+.delete-by-id p {
+  margin-top: 1rem;
+  color: #4a173b;
+  font-weight: bold;
+  text-align: center;
+}

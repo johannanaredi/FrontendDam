@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./DeleteById.css";
 
 function DeleteById({ username, password }) {
   const [assetId, setAssetId] = useState("");
@@ -26,20 +27,20 @@ function DeleteById({ username, password }) {
       });
   };
 
-  return (
-    <div>
-      <h2>Ta bort asset med ID</h2>
-      <input
-        type="number"
-        placeholder="Asset ID"
-        value={assetId}
-        onChange={(e) => setAssetId(e.target.value)}
-        style={{ marginRight: "10px" }}
-      />
-      <button onClick={handleDelete}>Ta bort</button>
-      {message && <p>{message}</p>}
-    </div>
-  );
+ return (
+  <div className="delete-by-id">
+    <h2>Ta bort asset med ID</h2>
+    <input
+      type="number"
+      placeholder="Asset ID"
+      value={assetId}
+      onChange={(e) => setAssetId(e.target.value)}
+    />
+    <button onClick={handleDelete}>Ta bort</button>
+    {message && <p>{message}</p>}
+  </div>
+);
+
 }
 
 export default DeleteById;

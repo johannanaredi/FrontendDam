@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import "./MegaExportMissingButton.css";
+
 const MegaExportMissingButton = ({ username, password }) => {
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(false);
+
 
   const handleExport = async () => {
     setLoading(true);
@@ -28,8 +31,8 @@ const MegaExportMissingButton = ({ username, password }) => {
   };
 
   return (
-    <div>
-      <button onClick={handleExport} disabled={loading}>
+       <div className="export-container">
+      <button className="export-button" onClick={handleExport} disabled={loading}>
         {loading ? "Exporterar..." : "Exportera nya filer från databasen"}
       </button>
       {status && <p>{status}</p>}

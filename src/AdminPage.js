@@ -1,5 +1,4 @@
 
-import MegaExportAll from "./MegaExportAll";
 import MegaExportMissingButton from "./MegaExportMissingButton";
 import DeleteById from "./DeleteById";
 import MysqlAssets from "./MysqlAssets"
@@ -9,7 +8,6 @@ function AdminPage({ username, password, onLogout }) {
   return (
     <div>
       <h2>Hej admin!</h2>
-      <MegaExportAll username={username} password={password} />
        <MysqlAssets username={username} password={password} />
         <MegaExportMissingButton username={username} password={password} />
         <DeleteById username={username} password={password} />

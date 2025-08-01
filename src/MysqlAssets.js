@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./MysqlAssets.css";
 
 function MysqlAssets({ username, password }) {
   const [assets, setAssets] = useState([]);
@@ -24,7 +25,7 @@ function MysqlAssets({ username, password }) {
   );
 
   return (
-    <div>
+    <div className="mysql-assets">
       <h3>Tillgångar i databasen</h3>
       {error && <p>{error}</p>}
 
