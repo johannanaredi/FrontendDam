@@ -1,4 +1,4 @@
-
+import "./Logout.css";
 import MegaExportMissingButton from "./MegaExportMissingButton";
 import DeleteById from "./DeleteById";
 import MysqlAssets from "./MysqlAssets"
@@ -11,7 +11,7 @@ function AdminPage({ username, password, onLogout }) {
        <MysqlAssets username={username} password={password} />
         <MegaExportMissingButton username={username} password={password} />
         <DeleteById username={username} password={password} />
-      <button onClick={onLogout}>Logga ut</button>
+      <button className="logout-button" onClick={onLogout}>Logga ut</button>
     </div>
   );
 }
