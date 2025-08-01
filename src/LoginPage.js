@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./LoginPage.css";
 
 function LoginPage({ setCredentials }) {
   const [username, setUsername] = useState("");
@@ -31,11 +32,13 @@ function LoginPage({ setCredentials }) {
   };
 
   return (
-    <div>
+    <div className="login-container">
+      <div className="login-box">
       <h2>Logga in</h2>
       <input value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Användarnamn" />
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Lösenord" />
       <button onClick={handleLogin}>Logga in</button>
+    </div>
     </div>
   );
 }

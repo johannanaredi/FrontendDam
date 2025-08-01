@@ -11,7 +11,7 @@ function MegaExportAll({ username, password }) {
       },
     })
       .then((res) => {
-        if (!res.ok) throw new Error("Kunde inte hämta export-data");
+        if (!res.ok) throw new Error("Kunde inte hämta data-exporten");
         return res.json();
       })
       .then((data) => setExportData(data))
@@ -20,8 +20,8 @@ function MegaExportAll({ username, password }) {
 
   return (
     <div>
-      <h3>Exporterat data</h3>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      <h3>Exporterade tillgångar</h3>
+      {error && <p>{error}</p>}
       <ul>
         {exportData.map((item, index) => (
           <li key={index}>

@@ -4,14 +4,13 @@ import LoginPage from "./LoginPage";
 import UserPage from "./UserPage";
 import AdminPage from "./AdminPage";
 
-// Inre komponent med navigation
 function AppContent() {
   const [credentials, setCredentials] = useState({ username: "", password: "" });
   const navigate = useNavigate();
 
   const handleLogout = () => {
     setCredentials({ username: "", password: "" });
-    navigate("/"); // går tillbaka till login-sidan
+    navigate("/"); 
   };
 
   return (
@@ -23,7 +22,6 @@ function AppContent() {
   );
 }
 
-// Yttre komponent med Router
 function App() {
   return (
     <Router>

@@ -25,8 +25,8 @@ function MysqlAssets({ username, password }) {
 
   return (
     <div>
-      <h3>MySQL Assets</h3>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      <h3>Tillgångar i databasen</h3>
+      {error && <p>{error}</p>}
 
       {/* Sökfält */}
       <input
@@ -40,6 +40,7 @@ function MysqlAssets({ username, password }) {
       <ul>
         {filteredAssets.map(asset => (
           <li key={asset.id}>
+            <strong>{asset.id}</strong><br />
             <strong>{asset.filename}</strong><br />
             URL: <a href={asset.megaUrl} target="_blank" rel="noreferrer">{asset.megaUrl}</a><br />
             Typ: {asset.fileType}<br />
