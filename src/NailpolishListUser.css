@@ -54,12 +54,11 @@ button {
   margin: 2px;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
   font-weight: bold;
 }
 
 button:hover {
-  opacity: 0.9;
+  opacity: 0.9; /* Gör knappen lite genomskinlig när man hovrar */
 }
 
 button:first-of-type {

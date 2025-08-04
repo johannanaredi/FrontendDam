@@ -14,12 +14,14 @@ function MysqlAssets({ username, password }) {
     })
       .then(res => {
         if (!res.ok) throw new Error("Kunde inte hämta asset-data");
+        // Konvertera svaret till JSON
         return res.json();
       })
-      .then(data => setAssets(data))
+      .then(data => setAssets(data))   // Spara datan i state
       .catch(err => setError(err.message));
   }, [username, password]);
 
+  // Filtrerar tillgångarna när anvädnaren söker
   const filteredAssets = assets.filter(asset =>
     asset.filename.toLowerCase().includes(searchTerm.toLowerCase())
   );
