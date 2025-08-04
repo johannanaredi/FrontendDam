@@ -1,9 +1,9 @@
 .login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(to right, #dbeafe, #93c5fd);
+  display: flex; /* Använder Flexbox för att kunna centrera innehållet */
+  justify-content: center; /* Centrerar innehållet horisontellt */
+  align-items: center; /* Centrerar innehållet vertikalt */
+  min-height: 100vh; /* Gör så att behållaren alltid täcker hela höjden av skärmen */
+  background: linear-gradient(to right, #dbeafe, #93c5fd); /* Ljusblå bakgrundsgradient från vänster till höger */
   font-family: Arial, sans-serif;
 }
 
@@ -34,7 +34,7 @@
   width: 100%;
   padding: 0.6rem;
   font-size: 1rem;
-  border: none;
+  border: none; /* Tar bort standardkant */
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
