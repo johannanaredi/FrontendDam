@@ -2,15 +2,15 @@
   max-width: 500px;
   margin: 2rem auto;
   padding: 1.5rem;
-  background-color: #fff8f8;
-  border: 1px solid #ffcccc;
+  background-color: #d3f3f8;
+  border: 1px solid #c3c8fc;
   border-radius: 12px;
   font-family: Arial, sans-serif;
   box-shadow: 0 2px 6px rgba(255, 0, 0, 0.1);
 }
 
 .delete-by-id h2 {
-  color: #600c65;
+  color: #1b0454;
   margin-bottom: 1rem;
   text-align: center;
 }
@@ -26,7 +26,7 @@
 
 .delete-by-id button {
   padding: 0.5rem 1rem;
-  background-color: #cf4ab2;
+  background-color: #4aa7cf;
   color: white;
   border: none;
   border-radius: 8px;
@@ -40,7 +40,7 @@
 
 .delete-by-id p {
   margin-top: 1rem;
-  color: #4a173b;
+  color: #092232;
   font-weight: bold;
   text-align: center;
 }

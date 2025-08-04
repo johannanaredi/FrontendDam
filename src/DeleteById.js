@@ -2,14 +2,14 @@ import { useState } from "react";
 import "./DeleteById.css";
 
 function DeleteById({ username, password }) {
-  const [assetId, setAssetId] = useState("");
+  const [assetId, setAssetId] = useState("");  // State-variabel för asset-id som användaren skriver in
   const [message, setMessage] = useState("");
 
   const handleDelete = () => {
     fetch(`http://localhost:8080/mega/assets/${assetId}`, {
       method: "DELETE",
       headers: {
-        Authorization: "Basic " + btoa(`${username}:${password}`),
+        Authorization: "Basic " + btoa(`${username}:${password}`),  // Skickar med Basic Auth-header baserat på användarnamn och lösenor
       },
     })
       .then((res) => {
