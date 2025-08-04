@@ -28,17 +28,19 @@ function NailpolishListUser({ username, password }) {
   const filtered = nailpolishes.filter((item) =>
     item.name?.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
+// När man klickar på en rad sätts den i redigeringsläge och skapar en kopia av objektet för ändringar.
   const startEdit = (index) => {
     setEditIndex(index);
     setEditNailpolish({ ...filtered[index] });
   };
 
+  // Uppdaterar editNailpolish när ett inputfält ändras
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setEditNailpolish((prev) => ({ ...prev, [name]: value }));
+    setEditNailpolish((prev) => ({ ...prev, [name]: value })); // Kopierar datan till redigeringsobjektet
   };
 
+  // Sparar ändrade värden till backend
   const saveEdit = () => {
     fetch(`http://localhost:8080/mega/nailpolish/${editNailpolish.name}`, {
       method: "PUT",
